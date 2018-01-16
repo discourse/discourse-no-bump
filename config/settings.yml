@@ -1,0 +1,6 @@
+plugins:
+  no_bump_enabled:
+    default: false
+  no_bump_trust_level:
+    default: 2
+    enum: 'TrustLevelSetting'
