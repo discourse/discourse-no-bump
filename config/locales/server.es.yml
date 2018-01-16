@@ -1,0 +1,5 @@
+es:
+  no_bump_error: "Por favor, espera que otros usuarios participen antes de responder"
+  site_settings:
+    no_bump_enabled: "Prevenir que los usuarios hagan bumping a sus propios temas"
+    no_bump_trust_level: "Usuarios con éste nivel de confianza (y menor) no podrán hacer bump sobre sus propios temas"
