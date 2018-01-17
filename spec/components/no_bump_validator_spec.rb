@@ -17,6 +17,11 @@ describe NoBumpValidator do
       expect(reply).not_to be_valid
     end
 
+    it "allow users to edit their posts" do
+      post.raw = "this is different text for the body"
+      expect(post).to be_valid
+    end
+
     it "allows admin users to bump their own topics" do
       user.admin = true
       user.save
