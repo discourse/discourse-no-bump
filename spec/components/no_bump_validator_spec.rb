@@ -2,8 +2,11 @@ require 'rails_helper'
 
 describe NoBumpValidator do
 
+  let(:bumped_at) { 1.week.ago }
+
   let!(:user) { Fabricate(:user) }
-  let!(:post) { Fabricate(:post, user: user) }
+  let!(:topic) { Fabricate(:topic, user: user, bumped_at: bumped_at) }
+  let!(:post) { Fabricate(:post, user: user, topic: topic) }
 
   describe "when enabled" do
     before do
@@ -11,42 +14,67 @@ describe NoBumpValidator do
       SiteSetting.no_bump_trust_level = 1
     end
 
-    it "doesn't allow users to bump their own topics" do
-      expect(post).to be_present
-      reply = Fabricate.build(:post, topic: post.topic, user: user)
-      expect(reply).not_to be_valid
+    describe "replying" do
+
+      it "doesn't allow users to bump their own topics" do
+        expect(post).to be_present
+        reply = Fabricate.build(:post, topic: post.topic, user: user)
+        expect(reply).not_to be_valid
+      end
+
+      it "allows admin users to bump their own topics" do
+        user.admin = true
+        user.save
+
+        expect(post).to be_present
+        reply = Fabricate.build(:post, topic: post.topic, user: user)
+        expect(reply).to be_valid
+      end
+
+      it "allows moderators to bump their own topics" do
+        user.moderator = true
+        user.save
+
+        expect(post).to be_present
+        reply = Fabricate.build(:post, topic: post.topic, user: user)
+        expect(reply).to be_valid
+      end
+
+      it "allows higher trust level users to bump their own topics" do
+        user.trust_level = 2
+        user.save
+
+        expect(post).to be_present
+        reply = Fabricate.build(:post, topic: post.topic, user: user)
+        expect(reply).to be_valid
+      end
     end
 
-    it "allow users to edit their posts" do
-      post.raw = "this is different text for the body"
-      expect(post).to be_valid
-    end
+    describe "editing" do
+      it "considers changing the raw content valid" do
+        post.raw = "this is different text for the body"
+        expect(post).to be_valid
+      end
 
-    it "allows admin users to bump their own topics" do
-      user.admin = true
-      user.save
+      it "doesn't bump when revising" do
+        PostRevisor.new(post).revise!(
+          user,
+          { raw: "this is different text for the body" } ,
+          force_new_version: true
+        )
+        topic.reload
+        expect(topic.bumped_at.to_i).to eq(bumped_at.to_i)
+      end
 
-      expect(post).to be_present
-      reply = Fabricate.build(:post, topic: post.topic, user: user)
-      expect(reply).to be_valid
-    end
-
-    it "allows moderators to bump their own topics" do
-      user.moderator = true
-      user.save
-
-      expect(post).to be_present
-      reply = Fabricate.build(:post, topic: post.topic, user: user)
-      expect(reply).to be_valid
-    end
-
-    it "allows higher trust level users to bump their own topics" do
-      user.trust_level = 2
-      user.save
-
-      expect(post).to be_present
-      reply = Fabricate.build(:post, topic: post.topic, user: user)
-      expect(reply).to be_valid
+      it "will bump when staff revises" do
+        PostRevisor.new(post).revise!(
+          Fabricate(:admin),
+          { raw: "this is different text for the body" } ,
+          force_new_version: true
+        )
+        topic.reload
+        expect(topic.bumped_at.to_i).not_to eq(bumped_at.to_i)
+      end
     end
 
   end
@@ -60,6 +88,16 @@ describe NoBumpValidator do
       expect(post).to be_present
       reply = Fabricate.build(:post, topic: post.topic, user: user)
       expect(reply).to be_valid
+    end
+
+    it "will bump on revision" do
+      PostRevisor.new(post).revise!(
+        user,
+        { raw: "this is different text for the body" } ,
+        force_new_version: true
+      )
+      topic.reload
+      expect(topic.bumped_at.to_i).not_to eq(bumped_at.to_i)
     end
   end
 
