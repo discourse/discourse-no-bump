@@ -15,3 +15,7 @@ their topic before they can reply again.
 
 * `no bump trust level` - users at this trust level (and lower) will not be
 allowed to bump their topics
+
+### More Info
+
+* [Official Discussion](https://meta.discourse.org/t/discourse-no-bump-prevent-users-from-bumping-topics/78186)
