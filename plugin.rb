@@ -10,6 +10,7 @@ after_initialize do
   class ::NoBumpValidator < ActiveModel::Validator
     def validate(record)
       return unless SiteSetting.no_bump_enabled?
+      return if record.topic.private_message?
       return if record.topic.user_id != record.user_id
       return if record.user.staff? ||
         record.user.trust_level > SiteSetting.no_bump_trust_level

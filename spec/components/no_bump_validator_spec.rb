@@ -22,6 +22,15 @@ describe NoBumpValidator do
         expect(reply).not_to be_valid
       end
 
+      it "is disabled on personal messages" do
+        pm_topic = Fabricate(:private_message_topic, user: user)
+        post = Fabricate(:post, user: user, topic: pm_topic)
+        expect(post).to be_present
+
+        reply = Fabricate.build(:post, topic: pm_topic, user: user)
+        expect(reply).to be_valid
+      end
+
       it "allows admin users to bump their own topics" do
         user.admin = true
         user.save
