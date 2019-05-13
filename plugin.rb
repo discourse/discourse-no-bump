@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # name: discourse-no-bump
 # about: Prevents users from bumping their own topics
 # version: 0.1
