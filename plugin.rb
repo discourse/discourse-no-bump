@@ -36,6 +36,6 @@ after_initialize do
   end
 
   class ::Post < ActiveRecord::Base
-    validates_with NoBumpValidator, on: :create
+    validates_with NoBumpValidator, on: :create, unless: :skip_validation
   end
 end

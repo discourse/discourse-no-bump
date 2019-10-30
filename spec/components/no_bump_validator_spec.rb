@@ -24,6 +24,12 @@ describe NoBumpValidator do
         expect(reply).not_to be_valid
       end
 
+      it "honors a post skips_validation flag" do
+        expect(post).to be_present
+        reply = Fabricate.build(:post, topic: post.topic, user: user, skip_validation: true)
+        expect(reply).to be_valid
+      end
+
       it "is disabled on personal messages" do
         pm_topic = Fabricate(:private_message_topic, user: user)
         post = Fabricate(:post, user: user, topic: pm_topic)
