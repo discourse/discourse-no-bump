@@ -3,4 +3,4 @@ plugins:
     default: false
   no_bump_trust_level:
     default: 2
-    enum: 'TrustLevelSetting'
+    enum: "TrustLevelSetting"

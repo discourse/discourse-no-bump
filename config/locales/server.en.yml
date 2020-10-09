@@ -3,4 +3,3 @@ en:
   site_settings:
     no_bump_enabled: "Prevent users from bumping their own topics"
     no_bump_trust_level: "Users at this trust level (and lower) will not be able to bump their own topics"
-
