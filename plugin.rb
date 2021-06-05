@@ -26,7 +26,7 @@ after_initialize do
         .first
 
       if last_post_user_id == record.user_id
-        record.errors[:base] << I18n.t("no_bump_error")
+        record.errors.add(:base, message: I18n.t("no_bump_error"))
       end
     end
   end
