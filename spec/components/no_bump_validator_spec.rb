@@ -22,6 +22,7 @@ describe NoBumpValidator do
         expect(post).to be_present
         reply = Fabricate.build(:post, topic: post.topic, user: user)
         expect(reply).not_to be_valid
+        expect(reply.errors.first.message).to eq("Please wait for other users to participate before replying")
       end
 
       it "honors a post skips_validation flag" do
