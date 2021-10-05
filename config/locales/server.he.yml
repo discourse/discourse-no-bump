@@ -5,3 +5,7 @@
 # https://translate.discourse.org/
 
 he:
+  no_bump_error: "נא להמתין לתגובתם של משתמשים אחרים בטרם פרסום תגובה נוספת"
+  site_settings:
+    no_bump_enabled: "למנוע ממשתמשים להקפיץ את הנושאים של עצמם"
+    no_bump_trust_level: "משתמשים בדרגת אמון זו (ומטה) לא יוכלו להקפיץ את הנושאים של עצמם"
