@@ -5,3 +5,7 @@
 # https://translate.discourse.org/
 
 sv:
+  no_bump_error: "Vänta på att andra användare ska delta innan du svarar"
+  site_settings:
+    no_bump_enabled: "Förhindra att användare knuffar sina egna ämnen"
+    no_bump_trust_level: "Användare på den här förtroendenivån (och lägre) kommer inte att kunna knuffa sina egna ämnen"
