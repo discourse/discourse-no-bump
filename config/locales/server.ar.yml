@@ -5,3 +5,7 @@
 # https://translate.discourse.org/
 
 ar:
+  no_bump_error: "يُرجى انتظار مشاركة المستخدمين الآخرين قبل الرد"
+  site_settings:
+    no_bump_enabled: "منع المستخدمين من رفع موضوعاتهم الخاصة"
+    no_bump_trust_level: "لن يتمكَّن المستخدمون في مستوى الثقة هذا (والأقل) من رفع موضوعاتهم الخاصة"

@@ -5,3 +5,7 @@
 # https://translate.discourse.org/
 
 zh_CN:
+  no_bump_error: "请等待其他用户参与后再回复"
+  site_settings:
+    no_bump_enabled: "防止用户提升自己的话题"
+    no_bump_trust_level: "此信任级别（及更低级别）的用户将无法提升自己的话题"
