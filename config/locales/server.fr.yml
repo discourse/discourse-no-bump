@@ -5,3 +5,7 @@
 # https://translate.discourse.org/
 
 fr:
+  no_bump_error: "Veuillez attendre que les autres utilisateurs participent avant de répondre"
+  site_settings:
+    no_bump_enabled: "Empêcher les utilisateurs de remonter leurs propres sujets"
+    no_bump_trust_level: "Les utilisateurs de ce niveau de confiance (ou inférieur) ne pourront pas remonter leurs propres sujets"

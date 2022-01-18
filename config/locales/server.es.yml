@@ -5,7 +5,7 @@
 # https://translate.discourse.org/
 
 es:
-  no_bump_error: "Por favor, espera que otros usuarios participen antes de responder"
+  no_bump_error: "Espera a que otros usuarios participen antes de responder."
   site_settings:
-    no_bump_enabled: "Prevenir que los usuarios hagan bumping a sus propios temas"
-    no_bump_trust_level: "Usuarios con éste nivel de confianza (y menor) no podrán hacer bump sobre sus propios temas"
+    no_bump_enabled: "Impedir que los usuarios hagan «bumping» en sus propios temas"
+    no_bump_trust_level: "Los usuarios de este nivel de confianza (e inferior) no podrán hacer un «bump» de sus propios temas"

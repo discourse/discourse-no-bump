@@ -5,3 +5,7 @@
 # https://translate.discourse.org/
 
 it:
+  no_bump_error: "Attendere la partecipazione di altri utenti prima di rispondere"
+  site_settings:
+    no_bump_enabled: "Impedisci agli utenti di inserire i propri argomenti"
+    no_bump_trust_level: "Gli utenti con livello di attendibilità minore o uguale a questo valore non saranno in grado di inserire i propri argomenti"

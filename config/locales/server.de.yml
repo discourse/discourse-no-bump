@@ -5,3 +5,7 @@
 # https://translate.discourse.org/
 
 de:
+  no_bump_error: "Bitte warte, bis sich andere Benutzer beteiligt haben, bevor du antwortest"
+  site_settings:
+    no_bump_enabled: "Verhindern, dass Benutzer ihre eigenen Themen nach oben schieben"
+    no_bump_trust_level: "Benutzer auf dieser Vertrauensstufe (und niedriger) können ihre eigenen Themen nicht nach oben schieben"
