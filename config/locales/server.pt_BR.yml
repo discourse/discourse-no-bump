@@ -5,3 +5,7 @@
 # https://translate.discourse.org/
 
 pt_BR:
+  no_bump_error: "Espere os(as) outros usuários(as) participarem antes de responder"
+  site_settings:
+    no_bump_enabled: "Impedir usuários(as) de promover seus próprios tópicos"
+    no_bump_trust_level: "Usuários(as) neste nível de confiança (e mais baixo) não poderão promover seus próprios tópicos"

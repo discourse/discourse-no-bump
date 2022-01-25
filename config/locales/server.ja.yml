@@ -5,3 +5,7 @@
 # https://translate.discourse.org/
 
 ja:
+  no_bump_error: "他のユーザーが参加するのを待ってから返信してください"
+  site_settings:
+    no_bump_enabled: "ユーザーが自分のトピックをバンプできないようにする"
+    no_bump_trust_level: "この信頼レベル（およびそれ以下）のユーザーは、自分のトピックをバンプすることはできません"

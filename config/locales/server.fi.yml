@@ -5,3 +5,7 @@
 # https://translate.discourse.org/
 
 fi:
+  no_bump_error: "Odota muiden käyttäjien osallistumista ennen vastaamista"
+  site_settings:
+    no_bump_enabled: "Estä käyttäjiä nostamasta omia ketjujaan"
+    no_bump_trust_level: "Tällä luottamustasolla (ja sitä alemmalla) olevat käyttäjät eivät voi nostaa omia ketjujaan"
