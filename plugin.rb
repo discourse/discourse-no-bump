@@ -4,6 +4,7 @@
 # about: Prevents users from bumping their own topics
 # version: 0.1
 # authors: Robin Ward
+# url: https://github.com/discourse/discourse-no-bump
 
 enabled_site_setting :no_bump_enabled
 
