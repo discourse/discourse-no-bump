@@ -5,3 +5,7 @@
 # https://translate.discourse.org/
 
 nl:
+  no_bump_error: "Wacht tot andere gebruikers deelnemen voordat je antwoordt"
+  site_settings:
+    no_bump_enabled: "Voorkom dat gebruikers hun eigen topics omhoog plaatsen"
+    no_bump_trust_level: "Gebruikers met dit vertrouwensniveau (en lager) kunnen hun eigen topics niet omhoog plaatsen"
