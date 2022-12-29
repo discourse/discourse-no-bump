@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe NoBumpValidator do
-
   let(:bumped_at) { 1.week.ago }
 
   let!(:user) { Fabricate(:user) }
@@ -17,12 +16,13 @@ describe NoBumpValidator do
     end
 
     describe "replying" do
-
       it "doesn't allow users to bump their own topics" do
         expect(post).to be_present
         reply = Fabricate.build(:post, topic: post.topic, user: user)
         expect(reply).not_to be_valid
-        expect(reply.errors.first.message).to eq("Please wait for other users to participate before replying")
+        expect(reply.errors.first.message).to eq(
+          "Please wait for other users to participate before replying",
+        )
       end
 
       it "honors a post skips_validation flag" do
@@ -77,8 +77,8 @@ describe NoBumpValidator do
       it "doesn't bump when revising" do
         PostRevisor.new(post).revise!(
           user,
-          { raw: "this is different text for the body" } ,
-          force_new_version: true
+          { raw: "this is different text for the body" },
+          force_new_version: true,
         )
         topic.reload
         expect(topic.bumped_at.to_i).to eq(bumped_at.to_i)
@@ -87,20 +87,17 @@ describe NoBumpValidator do
       it "will bump when staff revises" do
         PostRevisor.new(post).revise!(
           Fabricate(:admin),
-          { raw: "this is different text for the body" } ,
-          force_new_version: true
+          { raw: "this is different text for the body" },
+          force_new_version: true,
         )
         topic.reload
         expect(topic.bumped_at.to_i).not_to eq(bumped_at.to_i)
       end
     end
-
   end
 
   describe "when disabled" do
-    before do
-      SiteSetting.no_bump_enabled = false
-    end
+    before { SiteSetting.no_bump_enabled = false }
 
     it "allows users to bump their own topics" do
       expect(post).to be_present
@@ -111,12 +108,11 @@ describe NoBumpValidator do
     it "will bump on revision" do
       PostRevisor.new(post).revise!(
         user,
-        { raw: "this is different text for the body" } ,
-        force_new_version: true
+        { raw: "this is different text for the body" },
+        force_new_version: true,
       )
       topic.reload
       expect(topic.bumped_at.to_i).not_to eq(bumped_at.to_i)
     end
   end
-
 end
