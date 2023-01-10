@@ -5,3 +5,7 @@
 # https://translate.discourse.org/
 
 tr_TR:
+  no_bump_error: "Lütfen yanıt vermeden önce diğer kullanıcıların katılmasını bekleyin"
+  site_settings:
+    no_bump_enabled: "Kullanıcıların kendi konularını üste sıçratmasını engelleyin"
+    no_bump_trust_level: "Bu güven seviyesindeki (ve altındaki) kullanıcılar kendi konularını üste sıçratamazlar"
