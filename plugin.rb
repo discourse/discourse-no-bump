@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 # name: discourse-no-bump
-# about: Prevents users from bumping their own topics
+# about: Prevents users from bumping topics.
+# meta_topic_id: 78186
 # version: 0.1
 # authors: Robin Ward
 # url: https://github.com/discourse/discourse-no-bump
