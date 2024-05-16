@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe NoBumpValidator do
+RSpec.describe DiscourseNoBump::NoBumpValidator do
   let(:bumped_at) { 1.week.ago }
 
   let!(:user) { Fabricate(:user) }
