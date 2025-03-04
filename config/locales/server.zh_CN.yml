@@ -1,10 +1,4 @@
-# WARNING: Never edit this file.
-# It will be overwritten when translations are pulled from Crowdin.
-#
-# To work with us on translations, join this project:
-# https://translate.discourse.org/
-
-zh_CN:
+zh-CN:
   no_bump_error: "请等待其他用户参与后再回复"
   site_settings:
     no_bump_enabled: "防止用户提升自己的话题"

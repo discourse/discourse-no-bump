@@ -1,9 +1,3 @@
-# WARNING: Never edit this file.
-# It will be overwritten when translations are pulled from Crowdin.
-#
-# To work with us on translations, join this project:
-# https://translate.discourse.org/
-
 ja:
   no_bump_error: "他のユーザーが参加するのを待ってから返信してください"
   site_settings:

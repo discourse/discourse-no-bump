@@ -1,9 +1,3 @@
-# WARNING: Never edit this file.
-# It will be overwritten when translations are pulled from Crowdin.
-#
-# To work with us on translations, join this project:
-# https://translate.discourse.org/
-
 de:
   no_bump_error: "Bitte warte, bis sich andere Benutzer beteiligt haben, bevor du antwortest"
   site_settings:
