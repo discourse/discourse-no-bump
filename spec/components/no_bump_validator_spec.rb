@@ -84,14 +84,14 @@ RSpec.describe DiscourseNoBump::NoBumpValidator do
         expect(topic.bumped_at.to_i).to eq(bumped_at.to_i)
       end
 
-      it "will bump when staff revises" do
+      it "doesn't bump when staff revises" do
         PostRevisor.new(post).revise!(
           Fabricate(:admin),
           { raw: "this is different text for the body" },
           force_new_version: true,
         )
         topic.reload
-        expect(topic.bumped_at.to_i).not_to eq(bumped_at.to_i)
+        expect(topic.bumped_at.to_i).to eq(bumped_at.to_i)
       end
     end
   end
@@ -103,16 +103,6 @@ RSpec.describe DiscourseNoBump::NoBumpValidator do
       expect(post).to be_present
       reply = Fabricate.build(:post, topic: post.topic, user: user)
       expect(reply).to be_valid
-    end
-
-    it "will bump on revision" do
-      PostRevisor.new(post).revise!(
-        user,
-        { raw: "this is different text for the body" },
-        force_new_version: true,
-      )
-      topic.reload
-      expect(topic.bumped_at.to_i).not_to eq(bumped_at.to_i)
     end
   end
 end

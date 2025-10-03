@@ -2,6 +2,10 @@
 
 module DiscourseNoBump
   class NoBumpValidator < ActiveModel::Validator
+    # When creating a post, validates that a user cannot bump their own topic
+    # unless they are staff or above a certain trust level.
+    #
+    # Post revisions are irrelevant, because they don't bump topics in core.
     def validate(record)
       return unless SiteSetting.no_bump_enabled?
       return if record.topic.private_message?
