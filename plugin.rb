@@ -13,9 +13,5 @@ after_initialize do
   require_relative "lib/discourse_no_bump/no_bump_validator"
   require_relative "lib/discourse_no_bump/post_extension"
 
-  add_to_class :post_revisor, :bypass_bump? do
-    !@editor.staff?
-  end
-
   reloadable_patch { Post.prepend(DiscourseNoBump::PostExtension) }
 end
