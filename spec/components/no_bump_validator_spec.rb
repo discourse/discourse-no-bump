@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 RSpec.describe DiscourseNoBump::NoBumpValidator do
   let(:bumped_at) { 1.week.ago }
 
